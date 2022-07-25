@@ -1,6 +1,5 @@
 """fixtures"""
 import pytest
-from requests import request
 from api_connector import ConnectorAPI
 
 
@@ -24,11 +23,8 @@ def url():
 
 
 @pytest.fixture(scope='function', autouse=True)
-def clear(get_token, url):
+def clear(fch):
     """delete folders after tests"""
 
     yield
-    _res = request(method='delete', url=url,
-                   params=dict(path='tz_simbirsoft'),
-                   headers=dict(authorization=f'OAuth {get_token}'))
-
+    fch.delete_folder()
