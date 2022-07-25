@@ -19,7 +19,7 @@ class TestApi:
     def test_create_folder(self):
         """create folder test"""
         res = request(method='put', url=URL, headers=headers, params=params)
-        assert str(res.status_code) == '201'
+        assert res.status_code == 201
         assert json.loads(res.content.decode('utf-8')) == resp_body
 
 
