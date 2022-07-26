@@ -20,6 +20,7 @@ class ConnectorAPI:
         return response.status_code, loads(response.content.decode('utf-8'))
 
     def delete_folder(self):
+        """delete folder with name = name"""
         _response = request(method='delete', url=self.url,
                             headers=dict(authorization=f'OAuth {self.token}'),
                             params=dict(path=ConnectorAPI._name))
