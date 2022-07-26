@@ -10,7 +10,6 @@ class TestApi:
         """create folder test"""
         name = 'tz_simbirsoft'
         res = fch.create_folder(name)
-        assert res == (201, dict(href=f"{url}?path=disk%3A%2F{name}", method="GET", templated=False))
-
-
-
+        assert res == (201, dict(href=f'{url}?path=disk%3A%2F{name}',
+                                 method='GET',
+                                 templated=False))
